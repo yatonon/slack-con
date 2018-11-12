@@ -4,8 +4,7 @@ require 'json'
 require 'byebug'
 
 cr = CommitReceiver.new
-message = cr.message.gsub(/\*(.*?)\n/,'')
-# .gsub(/(\r\n?|\n)/,"")
+cr.commit_get
 Dotenv.load
 response = HTTP.post("https://slack.com/api/chat.postMessage", params: {
     token: ENV['SLACK_API_TOKEN'],
